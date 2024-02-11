@@ -1,0 +1,34 @@
+<div class="container mx-auto p-6">
+  <!-- Upload Section -->
+  <div class="flex flex-col items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-md">
+    <input type="file" id="fileUpload" class="hidden" accept="image/*" (change)="onFileSelect($event)" />
+    <label for="fileUpload" class="flex flex-col items-center justify-center cursor-pointer">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h10m-5 8h.01" />
+      </svg>
+      <span class="mt-2 text-base leading-normal text-gray-700">Select a file</span>
+    </label>
+  </div>
+
+  <!-- Image Preview Section -->
+  <div *ngIf="imageUrl" class="mt-6">
+    <img id="imagePreview"  [src]="imageUrl" class="w-full max-w-md mx-auto rounded-lg shadow-md block" src="#" alt="Image preview" />
+  </div>
+
+  <!-- Extracted Text Section -->
+  <div id="extractedTextSection" class="mt-6">
+    <div *ngIf="boldText" class="p-4 border rounded-lg">
+      <h6 class="underline">Bold Text</h6>
+      <p id="boldText" class="whitespace-pre-line text-gray-800">
+        {{boldText}}
+      </p>
+    </div>
+
+    <div *ngIf="extractedText" class="p-4 mt-3 border rounded-lg">
+      <h6 class="underline">Extracted Text</h6>
+      <p id="extractedText" class="whitespace-pre-line text-gray-800">
+        {{extractedText}}
+      </p>
+    </div>
+  </div>
+</div>
